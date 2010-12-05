@@ -10,6 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20101205042709) do
+
+  create_table "cities", :id => false, :force => true do |t|
+    t.string  "name",            :limit => 500
+    t.string  "country_code",    :limit => 3
+    t.string  "alternate_names", :limit => 5000
+    t.integer "location",        :limit => nil
+    t.integer "population",      :limit => 8
+  end
 
 end
