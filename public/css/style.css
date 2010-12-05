@@ -1,0 +1,197 @@
+/*
+
+===Leave these lines intact===
+
+Design: Ganesh02 - Aqua Reaction
+By: Ganesh Iyer
+http://ganeshnomicks.blogspot.com/
+
+
+*/
+
+
+
+body{
+  	background: #fff  url(img/bg2copy.gif) repeat-y ;
+	font-family: Verdana, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: center; /* For IE */
+	margin: 0;
+	padding: 0;
+	color: #333;
+}
+
+a { text-decoration: none; color:#01a3e1;}
+a:hover { border-bottom: 1px dashed #01a3e1; color: #333333; }
+
+#container {
+	margin: 0 auto;
+	width: 900px;
+	background: #fff ;
+	border: 0px solid #ddd;
+	padding: 0;
+	text-align: left; /* Cancel IE Fix */
+	}
+
+#header{
+  background: #fff url(img/headr.gif) repeat-x;
+  margin: 0px;
+  padding: 0px;
+  height: 114px;
+  width: 900px;
+}
+#header h1{
+  padding:0px;
+  margin: 30px;
+  float: left;
+}
+
+#main{
+  background: #0191ce url(img/main.gif) repeat-x;
+  padding: 30px 0px 30px 10px;
+  clear:both;
+  color: #fff;
+  border-bottom: 2px solid #333;
+  margin: 0px;
+
+}
+.para{
+  width:510px !important;
+  width: 400px;
+  margin-right: 0px;
+  margin-left: 130px;
+  padding: 0px;
+  height: 145px;
+}
+.para a
+{
+ 	color: #fff;
+	text-decoration: underline;
+}
+.para a:hover{
+	text-decoration: none;
+}
+
+.left {
+	float:left;
+	padding:0px;
+	margin-right:10px;
+
+
+	margin-bottom: 0px;
+}
+#submain{
+
+  color: #fff;
+  background: #292929;
+  margin: 0px;
+  padding: 5px;
+  border-bottom: 2px solid #000;
+  clear: both;
+  height: 200px;
+
+
+
+
+}
+
+/*Three Columns*/
+#subhead,#menu,#content,#sub-section,#subfooter {
+overflow:hidden;
+display:inline-block;
+
+
+}
+
+/*browser fix */
+
+#subhead,#subfooter {width:100%}
+
+#menu,#content,#sub-section {float:left}
+
+#menu {width:30%; padding: 2px 2px 2px 5px; border-right: 1px solid #4D4D4D}
+
+#content {width:30%; padding: 2px 12px 2px 5px; border-right: 1px solid #4D4D4D}
+
+#sub-section {width:30%; padding: 2px 12px 12px 5px;}
+
+#subfooter {clear:left; background:#292929;}
+
+
+
+
+
+/*NAVIGATION*/
+
+#nav {
+	float: right;
+	width: 36em;
+	list-style: none;
+	line-height: 107px;
+	font-weight: bold;
+	padding: 0;
+	border: solid #99CCFF;
+	border-width: 0px 0;
+	margin: 0 0 0 0;
+	color: #017cb8;
+}
+#nav ul{
+	list-style: none;
+	line-height: 1;
+	background: white;
+	font-weight: bold;
+	padding: 0;
+	border: solid #fff;
+	border-width: 1px 0;
+	margin: 0 0 0 0;
+}
+#nav a {
+	display: block;
+	width: 10em;
+	w\idth: 6em;
+	color: #017cb8;
+	text-decoration: none;
+	padding: 0.25em 0;
+	text-align: center;
+}
+
+#nav a:hover{
+  text-decoration:none;
+  border: 0px;
+  color: #333;
+}
+
+#nav li {
+	float: left;
+	padding: 0;
+	width: 10em;
+}
+
+
+
+#nav li:hover{
+	background: #fff url(img/nav.gif) repeat-x;
+}
+
+/*End Navigation*/
+    
+#contentmain{
+  clear: both;
+  padding: 20px;
+
+}
+
+#footer{
+  background: #292929;
+  color: #fff;
+  text-align: center;
+  clear:both;
+  padding: 20px;
+  margin: 0;
+}
+
+#footer a:hover{
+  color: #fff;
+}
+
+

@@ -19,5 +19,6 @@ class MainController < ApplicationController
     @radius = params['r']
     @id = params['id']
     @units = params['units']
+	@results = []
   end
 end
