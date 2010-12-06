@@ -1,2 +1,11 @@
 %h1 Results List
 you chose option #{@id} within a radius of #{@radius} #{@units}
+%table
+  %tr
+    %th name
+    %th population
+  - @results.each do |city|
+    %tr
+      %td= city["name"]
+      %td= city["population"]
+  end

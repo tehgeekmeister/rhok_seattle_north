@@ -7,19 +7,12 @@
       %th
       %th Name
       %th Coordinates
-      %th Population
     - @results.each do |pclist|
       %tr
-        %td= radio_button_tag(:id,pclist[:id],false)
+        %td= radio_button_tag(:id,pclist[:value],false)
         %td= pclist[:name]
-        %td= pclist[:coordinates]
-        %td= pclist[:population]
+        %td= link_to pclist[:coordinates], "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=#{pclist[:coordinates]}"
   = label_tag(:r, "Radius:")
   = text_field_tag(:r)
-  %p
-  = label_tag("units_KM","KM")
-  = radio_button_tag("units","KM",true)
-  = label_tag("units_MI","MI")
-  = radio_button_tag("units","MI")
   %p
   = submit_tag("Refine")
