@@ -22,9 +22,9 @@ class MainController < ApplicationController
   def results
     @radius = params['r']
     @id = params['id']
-    # @units = params['units'] todo this should accept kilometers or miles in the future.
+    @units = params['units']
     lat = @id.split[0][0..-2].to_i # these will return 0 if these are non-string values.  might wanna display a warning in that case?
     lng = @id.split[1][0..-2].to_i
-    @results = Zeke.cities_in_radius(@radius, lat, lng).sort_by {|city| city["population"].to_i}.reverse
+    @results = Zeke.cities_in_radius(@radius, lat, lng, @units.to_sym).sort_by {|city| city["population"].to_i}.reverse
   end
 end

@@ -15,4 +15,9 @@
   = label_tag(:r, "Radius:")
   = text_field_tag(:r)
   %p
+  = label_tag("units_KM","kms")
+  = radio_button_tag("units","kms",true)
+  = label_tag("units_MI","miles")
+  = radio_button_tag("units","miles")
+  %p
   = submit_tag("Refine")

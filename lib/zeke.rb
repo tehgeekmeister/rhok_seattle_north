@@ -29,12 +29,11 @@ class Zeke
     Geonames::WebService.search sc
   end
   
-  def self.cities_in_radius(distance, lat, lng, units = :kilometers)
+  def self.cities_in_radius(distance, lat, lng, units = :kms)
     conn = ActiveRecord::Base.connection
     coords = Geokit::LatLng.new(lat,lng)
-    raise ArgumentError unless (units == :miles) or (units == :kilometers)
-    distance = distance * 0.621371192 if units == :miles
-    box = Geokit::Bounds.from_point_and_radius coords, distance
+    raise ArgumentError unless (units == :miles) or (units == :kms)
+    box = Geokit::Bounds.from_point_and_radius coords, distance, {:units => units}
     sw, ne = box.sw, box.ne
     nw, se = Geokit::LatLng.new(sw.lat, ne.lng), Geokit::LatLng.new(ne.lat, sw.lng)
     conn.select_all("select * from cities where Contains(GeomFromText('Polygon((#{sw.lat} #{sw.lng}, #{nw.lat} #{nw.lng}, #{ne.lat} #{ne.lng}, #{se.lat} #{se.lng}, #{sw.lat} #{sw.lng}))'), location);")
