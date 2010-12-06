@@ -29,13 +29,15 @@ class Zeke
     Geonames::WebService.search sc
   end
   
-  # def self.wikipedia_places_in_radius(distance, lat, lng, units = :kilometers)
-  #   # coords = Geokit::LatLng.new(lat,lng)
-  #   raise ArgumentError unless (units == :miles) or (units == :kilometers)
-  #   distance = distance * 0.621371192 if units == :miles
-  #   # box = Geokit::Bounds.from_point_and_radius coords, distance
-  #   # sw, ne = box.sw, box.ne
-  #   return Geonames::WebService.find_nearby_wikipedia({:lat => lat, :long => lng, :radius => distance, :max_rows => 10000}).select {|r| r.population.to_i > 0}
-  # end
+  def self.cities_in_radius(distance, lat, lng, units = :kilometers)
+    conn = ActiveRecord::Base.connection
+    coords = Geokit::LatLng.new(lat,lng)
+    raise ArgumentError unless (units == :miles) or (units == :kilometers)
+    distance = distance * 0.621371192 if units == :miles
+    box = Geokit::Bounds.from_point_and_radius coords, distance
+    sw, ne = box.sw, box.ne
+    nw, se = Geokit::LatLng.new(sw.lat, ne.lng), Geokit::LatLng.new(ne.lat, sw.lng)
+    conn.select_all("select * from cities where Contains(GeomFromText('Polygon((#{sw.lat} #{sw.lng}, #{nw.lat} #{nw.lng}, #{ne.lat} #{ne.lng}, #{se.lat} #{se.lng}, #{sw.lat} #{sw.lng}))'), location);")
+  end
   
 end
