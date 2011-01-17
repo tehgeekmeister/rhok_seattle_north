@@ -4,8 +4,12 @@ you chose option #{@id} within a radius of #{@radius} #{@units}
   %tr
     %th name
     %th population
+    %th lat
+    %th lng
   - @results.each do |city|
     %tr
       %td= city["name"]
       %td= city["population"]
+      %td= city["lat"]
+      %td= city["lng"]
   end

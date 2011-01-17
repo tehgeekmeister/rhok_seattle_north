@@ -16,7 +16,7 @@ class Zeke
         lng = line[5]
         population = line[14]
         country_code = line[8]
-        conn.execute "insert into cities values ('#{conn.quote_string name}', '#{country_code}', '#{conn.quote_string alternate_names}', POINT(#{lat}, #{lng}), #{population});"
+        conn.execute "insert into cities values ('#{conn.quote_string name}', '#{country_code}', '#{conn.quote_string alternate_names}', POINT(#{lat}, #{lng}), #{population}, #{lat}, #{lng});"
         pb.inc
       end
       pb.finish
@@ -30,6 +30,7 @@ class Zeke
   end
   
   def self.cities_in_radius(distance, lat, lng, units = :kms)
+    puts "*********", distance, lat, lng, units, "*********"
     conn = ActiveRecord::Base.connection
     coords = Geokit::LatLng.new(lat,lng)
     raise ArgumentError unless (units == :miles) or (units == :kms)

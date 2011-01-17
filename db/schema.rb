@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(:version => 20101205042709) do
     t.string  "alternate_names", :limit => 5000
     t.integer "location",        :limit => nil
     t.integer "population",      :limit => 8
+    t.float   "lat"
+    t.float   "lng"
   end
 
 end
